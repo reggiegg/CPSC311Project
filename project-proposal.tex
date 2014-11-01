@@ -46,12 +46,15 @@
 % For tracking purposes - this is V2.0 - May 2012
 
 \documentclass{sig-alternate}
+\usepackage{hyperref}
+\usepackage{breakurl}
+
 
 \makeatletter
 \def\@copyrightspace{\relax}
 \makeatother
 
-\begin{document}
+\begin{document} \sloppy
 
 %
 % --- Author Metadata here ---
@@ -109,31 +112,31 @@
 % 1st. author
 \alignauthor
 Reggie Gillett\\
-       \affaddr{27133123}\\
-       \affaddr{w6k8}\\
-       \email{reggie.gillett@gmail.com}
+\affaddr{27133123}\\
+\affaddr{w6k8}\\
+\email{reggie.gillett@gmail.com}
 % 2nd. author
 \alignauthor
 Graham St-Laurent\\
-       \affaddr{23310121}\\
-       \affaddr{i5l8}\\
-       \email{gstlaurent@gmail.com}
+\affaddr{23310121}\\
+\affaddr{i5l8}\\
+\email{gstlaurent@gmail.com}
 % 3rd. author
 \alignauthor Lynsey Haynes\\
-       \affaddr{12686119}\\
-       \affaddr{a4h8}\\
-       \email{lynseyahaynes@gmail.com}
+\affaddr{12686119}\\
+\affaddr{a4h8}\\
+\email{lynseyahaynes@gmail.com}
 \and  % use '\and' if you need 'another row' of author names
 % 4th. author
-\alignauthor Gord Minaker\\
-       \affaddr{34615112}\\
-       \affaddr{u4s8}\\
-       \email{gordonminaker@hotmail.com}
-% 5th. author
 \alignauthor Brittany Roesch\\
-       \affaddr{22015119}\\
-       \affaddr{r1d8}\\
-       \email{brroesch@gmail.com}
+\affaddr{22015119}\\
+\affaddr{r1d8}\\
+\email{brroesch@gmail.com}
+% 5th. author
+\alignauthor Gord Minaker\\
+\affaddr{34615112}\\
+\affaddr{u4s8}\\
+\email{gordonminaker@hotmail.com}
 }
 % % There's nothing stopping you putting the seventh, eighth, etc.
 % % author on the opening page (as the 'third row') but we ask,
@@ -149,126 +152,180 @@ Graham St-Laurent\\
 
 \maketitle
 \begin{abstract}
-We are creating a substantial program in Factor; a programming language that none of us have studied. Factor is a stack-based programming language and we will be using it to make a game which helps to teach users about stack-based languages.
+We are creating a substantial program in Factor; a programming language that none of us have studied previously. Factor is a concatenative, stack-based programming language and we will be using it to make a game which helps to teach users about stack-based languages.
 \end{abstract}
 
 % % A category with the (minimum) three required fields
 % \category{H.4}{Information Systems Applications}{Miscellaneous}
 % %A category including the fourth, optional field follows...
-% \category{D.2.8}{Software Engineering}{Metrics}[complexity measures, performance measures]
+\category{D.3.3}{Programming Languages}{Language Constructs and Features}
 
-\terms{Education}
+\terms{Languages}
 
-\keywords{Factor, games, concatenative languages}
+\keywords{Factor, games, stack-based languages, concatenative languages}
 
 \section{Introduction}
-We are looking to create a game which illustrates to players the
+We will be creating a substantial program in Factor - a stack-based
+programming language that none of us have studied previously. 
+Our game will educate and illustrate to players the
 unique paradigm of concatenative languages. We intend to create
 said game in Factor, which is itself a concatenative language.
-This is no accident.
+This is not an accident. 
 
-\section{The Game}
-\subsection{How it Meets Project Requirements}\
-We intend to create a fully featured interactive game. Concepts
-pertaining to stack based, or concatenative, languages will be
-illustrated through analogous gameplay. We have discussed the
-idea of using the analogy of creating recipes to prepare various
-forms of stack like food (think: hamburgers, sandwiches, pancakes).
-Through this parallel players will manipulate ``recipes'' which are 
-representative of the sequence of operation which manipulate a stack.
-Through this manipulation they will create various types of food.
+\section{The Game} \subsection{How it Meets Project Requirements}
+\subsubsection*{\textit{Substantialness of the Program}}
+We will be
+creating a fully featured interactive game. This will be a substantial
+undertaking as we intend to include several levels and some sort of
+graphical user interface including a visual representation of a stack.
+Concepts pertaining to stack-based and concatenative languages will be
+illustrated through analogous gameplay. We have discussed the idea of
+using the analogy of creating recipes to prepare various forms of
+stack-like food (think: hamburgers, sandwiches, pancakes). Through
+this parallel, players will manipulate ``recipes'' which are
+representative of a \textit{concatenative} sequence of operation which
+manipulate a stack. A player will be presented with a type of food
+that they are required to prepare. They will be given a vocabulary of
+actions from which they can construct recipes. These actions are a
+direct analog to words as they are presented in Factor. When recipes
+are executed, the user will be presented with their final product,
+which will be compared to the desired outcome. If they match the
+player progresses to the next level. Progression through levels will
+present new foods which require increasingly complex recipes to
+create. Each level will highlight some aspect particular to the
+language, which highlights various aspects of our language of inquiry.
+As it gets more complex, the analogy starts to break down, how does
+one represent control flow words such as conditionals or loops in a
+recipe for food? In order to surmount this obstacle we have discussed
+having our levels become increasingly surreal.  Perhaps the player
+will have to prepare a hamburger for an mystery diner, and will
+include a condition that if the diner reveals himself to be a
+vegetarian a veggie burger will be prepared otherwise a standard beef
+burger will be prepared. While this example does not necessarily
+illustrate the surreal quality we might incorporate, it does highlight
+the more abstract challenges we will have to navigate.
 
-We chose Factor as our language of inquiry due to its unique qualities.
-As a language it is heavily influenced by functional language concepts,
-however, because it is stack-based it must present these concepts in a
-different way. It forces the user to explore these concepts explicitly
-and byy doing so it further ellucidates these ideas while
-simultaneously exposing the user (us) to a new paradigm. 
-
-Must be substantial
-
-Language must be useful
+\subsubsection*{\textit{Useful But Esoteric Nature of Factor and its Value}}
+Factor is both a concatenative and stack-based language, but
+unlike most languages following those paradigms, it is rich with
+features that are found in more typical modern programming languages
+(E.g., graphical, networking, threading, and I/O capabilities). This
+leaves open the possibility of creating a substantial and useful
+program without too much effort. Factor also implements a diverse
+collection of functional patterns, making it easy to intuitively
+manipulate sequential data. But unlike most high-level languages --
+functional, or otherwise -- Factor provides the option of using low-level
+ features such as manual memory management, pointer arithmetic,
+and inline assembly code. Although we don't expect that coding our
+program will take us in that particular direction, we find the
+juxtaposition of high and low levels to be particularly unique in
+Factor, and something that, under the right circumstances, could be
+quite useful (albeit, potentially quite dangerous, too!). Ultimately,
+Factor supports a diverse array of programming styles, thus leading to
+diverse ways to solve problems, thus perhaps leading to surprising
+solutions, and some of those might turn out to be quite enlightening.\\\\
+In spite of the diverse approaches to programming that Factor
+provides, its syntax demands that actual coding will always be stack-based
+ and concatenative. It is the value of this syntax and its unique
+patterns, that we find the most interesting, and potentially, the most
+useful. Concatenative syntax is point-free (although Factor does
+provide identifiers and its creators recommend using them for
+particularly complex situations), and stack-based languages use
+postfix operators; both of these syntactical styles are atypical among
+today's most popular programming languages (with the exception of
+Haskell, which has a popular point-free style). This means that Factor
+has a unique way of expressing and exploring, and we will develop a
+new way of looking at problems that could come in handy in our future
+endeavours. In the course of working on our program, we will try to
+use as many of these strange idioms and patterns as we can. The
+creators of Factor have given evocative names to many of these; we
+intend to produce a program turgid (where appropriate, that is) with
+things like  \textit{Fried Quotations}, some of the numerous
+\textit{combinators} (e.g., \textit{Cleave, Spread, Sequence, Curried
+dataflow}), and, perhaps most interestingly, functions that assemble
+or disassemble \textit{quotations} (lambdas), thus providing an
+idiomatic way to ``write code that writes code'' [1]
 
 \subsection{Our Approach}
-How we will reach each milestone
+\subsubsection*{\textit{Background Research
+Report}}To complete this milestone, we will research even more
+extensively about the advantages (and disadvantages) of Factor as a
+language, concatenative languages in general, and how the
+implementation of our game will relate to these features. We plan to
+research about previous implementations of concatenative languages,
+their use in industry, and previous applications of Factor. In
+addition, we will layout the foundation for how our game will look,
+what the user-interface will be, and how we plan to teach important
+components of concatenative languages to the user.\\\\ After researching
+the advantages of Factor, we will discuss how these features can be
+implemented and used in our game. We will experiment to see how they
+work in sample programs to better understand our knowledge of Factor.
+
+\subsubsection*{\textit{Project Proof-of-Concept and Plan}}In this
+stage we will firm up our plan and timeline to complete our super-
+awesome (hamburger / sandwich / pancake) making game that teaches
+users about concatenative languages without them even knowing it.
+Ethical? maybe. Awesome? definitely. We will provide details about our
+collaboration plan - when, where, and who will meet, the
+implementation of the game - what it will look like and how it will
+work, technical requirements - what is required for us to work
+collaboratively and program in Factor, and give ourselves milestones
+to be able to complete the implementation stress-free. Completing this
+stage will mean we have reached our 80\% milestone.
+
+\subsubsection*{\textit{Poster}} Our poster will include stacks on
+stacks of stacks, hamburgers, and Factor-ial information. We will
+present the benefits of Factor as a language, concatenative
+languages, and build hype about how cool our game is so that we can
+release it, sell it, and all graduate debt-free! We plan to use a
+sturdy display board so that it can survive a small natural disaster.
+We will have completed some work on the game by this point, so
+hopefully we can have a demonstration for our peers to see.
+
+\subsubsection*{\textit{Final Project}} In this stage, we will complete
+the implementation of our game and compile our final report which
+will explain the game and any information required to play it. We
+will outline what we accomplished, how we met the goals in our
+project plan, and put together our final report for handin. Competing
+this stage will mean we have reached our 100\% milestone.
 
 \subsection{Starting Points}
-Papers and resources we have found
+We have found several scholarly articles and online resources
+which will aid in the development of our project:
 
-\section{In Summary}
+\begin{itemize}
+\item Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)\\\\A paper which presents Factor as a language written by its creators. (Note the
+reference to our own Gregor Kiczales in the bibliography)
+\item Herzburg, D., Reichert, T.: \textit{Concatenative Programming:
+An Overlooked Paradigm in Functional Programming} In: Proceedings of the 4th
+international conference on software and data technologies (2009)
+\\\\A paper which espouses the value of concatenative languages in software engineering 
+research. The authors present a language they have developed called Concat which exemplifies the unique qualities of the paradigm.
+\item \url{http://concatenative.org}\\
+in particular:\\\url{http://concatenative.org/wiki/view/Factor}\\\\Concatenative.org, a wiki dedicated to concatenative languages.
+\item Slava Pestov (October 27, 2008). \href{http://youtu.be/f_0QlhYlS8g}{Factor: An Extensible Interactive Language} (flv) (Tech talk). Google.\\\\A talk which describes the rational for Factor's creation, an overview of the language and its features, and a demonstration of how it can be used.
+\item Zed Shaw (2008). \href{http://vimeo.com/2723800}{The ACL is Dead} (flv) (CUSEC 2008). CUSEC.\\\\
+A presentation written in Factor which mentions and praises Factor
+\item The creators of Factor have also provided numerous resources on their webpage:\\\\\url{http://factorcode.org/}
+\end{itemize}
 
-%\end{document}  % This is where a 'short' article might terminate
 
-%ACKNOWLEDGMENTS are optional
-% \section{Acknowledgments}
-% This section is optional; it is a location for you
-% to acknowledge grants, funding, editing assistance and
-% what have you.  In the present case, for example, the
-% authors would like to thank Gerald Murray of ACM for
-% his help in codifying this \textit{Author's Guide}
-% and the \textbf{.cls} and \textbf{.tex} files that it describes.
+\section{Summary} We are going to be researching Factor's advantages
+as an exotic programming language to incorporate them into a game. The
+focus will be on understanding and eventually implementing Factor's
+unique features such as its stack-based nature, dynamic typing, point-
+free style, and multiple argument returns. This will allow the user to
+visually examine stack-based languages. Overall, we will evaluate
+Factor's usefulness as a programming language to develop an
+interactive game.
 
-%
-% The following two commands are all you need in the
-% initial runs of your .tex file to
-% produce the bibliography for the citations in your paper.
-% \bibliographystyle{abbrv}
-% \bibliography{sigproc}  % sigproc.bib is the name of the Bibliography in this case
-% You must have a proper ".bib" file
-%  and remember to run:
-% latex bibtex latex latex
-% to resolve all references
-%
-% ACM needs 'a single self-contained file'!
-%
-%APPENDICES are optional
-%\balancecolumns
-% \appendix
-% %Appendix A
-% \section{Headings in Appendices}
-% The rules about hierarchical headings discussed above for
-% the body of the article are different in the appendices.
-% In the \textbf{appendix} environment, the command
-% \textbf{section} is used to
-% indicate the start of each Appendix, with alphabetic order
-% designation (i.e. the first is A, the second B, etc.) and
-% a title (if you include one).  So, if you need
-% hierarchical structure
-% \textit{within} an Appendix, start with \textbf{subsection} as the
-% highest level. Here is an outline of the body of this
-% document in Appendix-appropriate form:
-% \subsection{Introduction}
-% \subsection{The Body of the Paper}
-% \subsubsection{Type Changes and  Special Characters}
-% \subsubsection{Math Equations}
-% \paragraph{Inline (In-text) Equations}
-% \paragraph{Display Equations}
-% \subsubsection{Citations}
-% \subsubsection{Tables}
-% \subsubsection{Figures}
-% \subsubsection{Theorem-like Constructs}
-% \subsubsection*{A Caveat for the \TeX\ Expert}
-% \subsection{Conclusions}
-% \subsection{Acknowledgments}
-% \subsection{Additional Authors}
-% This section is inserted by \LaTeX; you do not insert it.
-% You just add the names and information in the
-% \texttt{{\char'134}additionalauthors} command at the start
-% of the document.
-% \subsection{References}
-% Generated by bibtex from your ~.bib file.  Run latex,
-% then bibtex, then latex twice (to resolve references)
-% to create the ~.bbl file.  Insert that ~.bbl file into
-% the .tex source file and comment out
-% the command \texttt{{\char'134}thebibliography}.
-% % This next section command marks the start of
-% % Appendix B, and does not continue the present hierarchy
-% \section{More Help for the Hardy}
-% The sig-alternate.cls file itself is chock-full of succinct
-% and helpful comments.  If you consider yourself a moderately
-% experienced to expert user of \LaTeX, you may find reading
-% it useful but please remember not to change it.
-% %\balancecolumns % GM June 2007
-% % That's all folks!
+\section*{References}
+[1] Pestov, Slava. Control Flow Cookbook - Factor Documentation. 
+\burl{http://docs.factorcode.org/content/article-cookbook-combinators.html}(2014).
 
+
+
+\balancecolumns
 \end{document}
