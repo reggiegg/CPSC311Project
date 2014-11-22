@@ -1,0 +1,269 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{endnotes}
+\usepackage{cite}
+
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+
+\begin{document} \sloppy
+
+%
+% --- Author Metadata here ---
+% \conferenceinfo{University of British Columbia}{Vancouver, BC, Canada}
+% \CopyrightYear{2014} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+% \crdata{}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{PROPOSAL: A Stack Game in a Stack Language}
+% \subtitle{[Extended Abstract]
+% \titlenote{A full version of this paper is available as
+% \textit{Author's Guide to Preparing ACM SIG Proceedings Using
+% \LaTeX$2_\epsilon$\ and BibTeX} at
+% \texttt{www.acm.org/eaddress.htm}}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{5} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Reggie Gillett\\
+\affaddr{27133123}\\
+\affaddr{w6k8}\\
+\email{reggie.gillett@gmail.com}
+% 2nd. author
+\alignauthor
+Graham St-Laurent\\
+\affaddr{23310121}\\
+\affaddr{i5l8}\\
+\email{gstlaurent@gmail.com}
+% 3rd. author
+\alignauthor Lynsey Haynes\\
+\affaddr{12686119}\\
+\affaddr{a4h8}\\
+\email{lynseyahaynes@gmail.com}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor Brittany Roesch\\
+\affaddr{22015119}\\
+\affaddr{r1d8}\\
+\email{brroesch@gmail.com}
+% 5th. author
+\alignauthor Gord Minaker\\
+\affaddr{34615112}\\
+\affaddr{u4s8}\\
+\email{gordonminaker@hotmail.com}
+}
+% % There's nothing stopping you putting the seventh, eighth, etc.
+% % author on the opening page (as the 'third row') but we ask,
+% % for aesthetic reasons that you place these 'additional authors'
+% % in the \additional authors block, viz.
+% \additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+% email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+% (The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+% \date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+Factor is a richly-featured stack-based, concatenative, object-oriented programming language. Using this language, which none of us has studied previously, we plan to create a substantial program in the form of an interactive game. This paper provides an introduction to Factor as a programming language, outlines how we will use Factor in our implementation, and explains our approach to meeting all project milestones.
+\end{abstract}
+
+% % A category with the (minimum) three required fields
+% \category{H.4}{Information Systems Applications}{Miscellaneous}
+% %A category including the fourth, optional field follows...
+\category{D.3.3}{Programming Languages}{Language Constructs and Features}
+
+\terms{Languages}
+
+\keywords{Factor, games, stack-based languages, concatenative languages}
+
+\section{Introduction}
+We will be creating a substantial program in Factor\footnote{ \url{http://factorcode.org}} ---a concatenative, stack-based
+programming language that none of us has studied previously. 
+Our game will educate and illustrate to players the
+unique paradigm of concatenative languages. We intend to create
+said game in Factor, which is itself a concatenative language.
+This is not an accident. 
+
+\section{Overview of Factor}
+Unlike most of the languages we've encountered, Factor is both concatenative and stack-based, but it is still rich with
+features that are found in more typical modern programming languages
+(E.g., graphical, networking, threading, and I/O capabilities)\footnote{\url{http://docs.factorcode.org/content/article-vocab-index.html}}. This
+leaves open the possibility of creating a substantial and useful
+program without too much effort. Factor also implements a diverse
+collection of functional patterns, leading to potentially intuitive ways to manipulate sequential data\footnote{\url{http://docs.factorcode.org/content/article-lists-combinators.html}}. But unlike most high-level languages---functional, or otherwise---Factor provides the option of using low-level
+ features such as manual memory management, pointer arithmetic,
+and inline assembly code. Although we don't expect that coding our
+program will take us in that particular direction, this
+juxtaposition of high and low levels puts Factor in the same camp as Go\footnote{\url{https://golang.org/}} or Rust\footnote{\url{http://www.rust-lang.org/}}---just like C (or perhaps, in Factor's legacy, Forth\footnote{\url{http://www.forth.com}}) was forty years ago---and that under the right circumstances, this could be
+quite useful (albeit, potentially quite dangerous, too!).  Ultimately, "Factor combines features from existing languages with new
+innovations"\footnote{Slava Pestov, et al, "Factor: A Dynamic Stack-based Programming Language", \textit{ACM Proceedings}, 2010.}, and it is through that eclectic mix of tools for approaching problems\footnote{Slava Pestov, \textit{Factor/Features/The language}, 2010. \url{http://concatenative.org/wiki/view/Factor/Features/The\%20 language}}, that we we will explore Factor, perhaps leading to surprising solutions, and some of those might turn out to be quite enlightening.
+\\\\
+In spite of the diverse approaches to programming that Factor
+provides, its syntax demands that actual coding will always be stack-based
+ and concatenative. It is the value of this syntax and its unique
+patterns, that we find the most interesting, and potentially, the most
+useful. Concatenative syntax is point-free (although Factor does
+provide identifiers and its creators recommend using them for
+particularly complex situations), and stack-based languages use
+postfix operators; both of these syntactical styles are atypical among
+today's most popular programming languages (with the exception of
+Haskell, which has a popular point-free style). This means that Factor
+has a unique way of expressing and exploring, and we will develop a
+new way of looking at problems that could come in handy in our future
+endeavours\cite{Jon Purdy, \textit{Why Concatenative Programming Matters}, 2012. \url{http://evincarofautumn.blogspot.ca/2012/02/why-concatenative-programming-matters.html}}. In the course of working on our program, we will try to
+use as many of these strange idioms and patterns as we can. The
+creators of Factor have given evocative names to many of these; we
+intend to produce a program turgid (where appropriate, that is) with
+things like  \textit{Fried Quotations}, some of the numerous
+\textit{combinators} (e.g., \textit{Cleave, Spread, Sequence, Curried
+dataflow}), and, perhaps most interestingly, functions that assemble
+or disassemble \textit{quotations} (lambdas), thus providing an
+idiomatic way to ``write code that writes code''\footnote{Slava Pestov, Control Flow Cookbook - Factor Documentation, 2014. 
+\burl{http://docs.factorcode.org/content/article-cookbook-combinators.html}}.
+
+\section{Our Approach}
+\subsubsection*{The 80\% -- Background Research Report}
+To complete this milestone, we will research even more
+extensively about the advantages (and disadvantages) of Factor as a
+language, principally by describing the concatenative and stack-based language paradigms, how Factor implements them, while comparing Factor's implementation and syntax to those of other stack-based languages (such as PostScript\footnote{\url{http://www.adobe.com/products/postscript/}}). We will focus on Factor's features that we plan to use in our game, such as: input, output/graphics, control flow, unit testing, and object-orientedness. Throughout this section our theme will be constantly appraising and re-appraising Factor's usefulness.
+
+\subsubsection*{The 90\% -- Proof-of-Concept and Plan}
+In order to create a game, we will need to (1) learn how to code in Factor, (2) make sure that Factor has the tools we need to do what we want to do, and (3) have a game design in mind. In this section, we will demonstrate that all three things are possible. For (3), we will provide a detailed layout for the game that we will complete. It will be our plan, henceforth, to implement every element that we describe in this layout, so it is this at this milestone that the bulk of our game's design will be finally decided. (2) and (1) go hand-in-hand: by fulfilling (2), we will be proving that we can fulfill (1).  In order to fulfill (2), we will implement tiny programs that highlight key features that this game will rely on. The features we intend to demonstrate are the following:
+\begin{itemize}
+\item \textbf{Display}: We will determine how we will implement the visual component of our game by providing some simple, changing images. These will either be standard graphics, or text-based graphics, if the former turns out to be too troublesome for the scope of our project.
+\item \textbf{Input}: A tiny program to demonstrate that we can dynamically read user input, be it through text, arrow-keys, mouse, or some combination.
+\item \textbf{Control Flow}: Since the backbone of our game will rely on a game loop, we will demonstrate that Factor provides sufficient control flow structures to make a loop, as well as make decisions.
+\item \textbf{Unit Testing}: Robust program development requires reliable and easy testing. Factor provides a unit testing framework, and we will demonstrate that it meets those criteria.
+\item \textbf{Object-Orientedness}: Factor is an object-oriented language. Since there are a number of different ways of implementing the object-oriented concepts, we will demonstrate that Factor's extensible approach is suitable for us, by doing some basic object/method manipulations.
+\end{itemize}
+Some, if not all, of these features can be demonstrated together in tiny programs, or some may be best shown in multiple programs, so our proof-of-concept may not consist of exactly five programs. It is also possible that, as we get to know Factor better, we will discover other features that we determine to be indispensable for our game, in which case we will demonstrate them also. 
+
+
+\subsubsection*{The 100\% -- Final Project} 
+Our core game engine will be implemented in Factor, including at least one level. Gameplay will be possible using the features that were demonstrated in the \textit{Proof of Concept}, as well as a fully-implemented game-loop. Externally, this will be evident to the user as an image of a stack, a list of commands, and a problem to solve (as well as instructions). The user will be able to select the appropriate commands for either success or failure, and the game will respond accordingly. Internally, this will be accomplished through intended-to-be-idiomatic use of Factor.
+
+The effect that idiomatic use of Factor will have on our code has two main components. One is simply that fact that \textit{we are using Factor}, so all of the standard things that one does while programming will be done using Factor's particular---and sometimes unusual---implementations. In particular, we refer to the features that we will demonstrate in the \textit{Proof-of-Concept}, described below. The other component is rooted in the fact that Factor's tagline (yes, this language has a tagline) is "A Practical Stack Language"\footnote{\url{http://factorcode.org/}}, so it has developed a number of features to make its concatenative syntax more convenient (such as the aforementioned \textit{combinators}). We will be using these features as well as the stack-based, concatenative syntax in general, and this will affect how we think about the code that we write. Upon completion will make a value judgement on the usefulness of the concatenative paradigm.
+
+\subsubsection*{The Poster}
+The poster will have three purposes; these correspond nicely to the three components of the \textit{Proof-of-Concept}, described above. The first purpose will be to introduce people to the likely-unfamiliar concept of stack-based programming and its point-free, concatenative syntax. Some nice stack images will help with this. The second component will feature Factor specifically: we will also choose one or more particularly-interesting features of Factor (likely, these will include a unique solution to a common concatenative problem---e.g., readability); we will then display some code that exemplifies this, and have some stack-based, graphical explanations of them. Finally, there will be a small component that describes the game that we made: our peers will be able to see some real Factor code from a real program! In fact, by then, enough of the game will have been completed that we can even have a computer set up and provide a small demonstration of our Factor-coded game for our peers.
+
+\section{Starting Points}
+We have found several scholarly articles and online resources
+which will aid in the development of our project:
+
+\begin{itemize}
+\item Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)\\\\A paper which presents Factor as a language written by its creators. (Note the
+reference to our own Gregor Kiczales in the bibliography)
+\item Herzburg, D., Reichert, T.: \textit{Concatenative Programming:
+An Overlooked Paradigm in Functional Programming} In: Proceedings of the 4th
+international conference on software and data technologies (2009)
+\\\\A paper which espouses the value of concatenative languages in software engineering 
+research. The authors present a language they have developed called Concat which exemplifies the unique qualities of the paradigm.
+\item \url{http://concatenative.org}\\
+in particular:\\\url{http://concatenative.org/wiki/view/Factor}\\\\Concatenative.org, a wiki dedicated to concatenative languages.
+\item Slava Pestov (October 27, 2008). \href{http://youtu.be/f_0QlhYlS8g}{Factor: An Extensible Interactive Language} (flv) (Tech talk). Google.\\\\A talk which describes the rational for Factor's creation, an overview of the language and its features, and a demonstration of how it can be used.
+\item Zed Shaw (2008). \href{http://vimeo.com/2723800}{The ACL is Dead} (flv) (CUSEC 2008). CUSEC.\\\\
+A presentation written in Factor which mentions and praises Factor
+\item The creators of Factor have also provided numerous resources on their webpage:\\\\\url{http://factorcode.org/}
+\end{itemize}
+
+
+\section{Summary}
+We are creating a substantial program in Factor; a programming language that none of us have studied previously. Factor is a concatenative, stack-based programming language and we will be using it to make a game which helps to teach users about stack-based languages.
+
+
+\theendnotes
+
+\balancecolumns
+\end{document}

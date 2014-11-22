@@ -1,0 +1,9 @@
+\section{Game Design}
+In our game, the player will be presented with a collection of hamburger ingredients, a collection of actions, and a goal product. It is the player's task to apply the various actions to the ingredients in an appropriate order to produce the goal product. The catch: the ingredients are presented in a regular Last-In-First-Out stack, and the actions can correspondingly only be applied to the topmost elements of the stack. Initially, our game will only consist of one level, with a small collection of ingredients and a small selection of actions, but the complete game would consist of increasingly complex levels gruadually introducing of a large variety of actions and ingredients, not all of which would necessarily be available in each level. Throughout the game an overarching story about working in a restaurant would provide context for the different scenarios.
+
+\subsection{Example Level}
+Figure 1 represents a potential 
+
+
+
+\subsection{Example Level}
