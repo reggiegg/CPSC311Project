@@ -6,20 +6,31 @@ ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons
 io sequences math.parser math ;
 IN: burgerstacktory
 SYMBOL: game
-SYMBOL: stack
 
-TUPLE: gamestate gameuielements ;
 TUPLE: gameuielements goalui actionsui stackui ingredientsui ;
-TUPLE: superingredient image name ;
-TUPLE: ingredient < superingredient image name ;
+TUPLE: ingredient name image ;
+TUPLE: topbun < ingredient ;
+TUPLE: rawmeat < ingredient ;
+TUPLE: cookedmeat < ingredient ;
+TUPLE: bottombum < ingredient ;
 TUPLE: action function name description ; ! maybe an image
 TUPLE: goal goalstate goaltext ;
+TUPLE: stack stack ;
 TUPLE: stacktory goal stack actions ;
 
+GENERIC: grill ( ingredient -- ingredient )
+GENERIC: swap ( stack -- stack )
+GENERIC: serve ( stack -- stack )
+GENERIC: cook ( stack -- stack )
+GENERIC: execute ( action -- )
 
+M: ingredient grill ; ! cook the Ingredient
+M: rawmeat grill ; ! grill the meat
+M: stack swap ; ! swap the top two ingredients
+M: stack serve ; ! compare stack to goal
+M: stack cook dup first grill [ rest ] dip prefix ; ! cook top ingredient
+M: action execute  ; ! execute an action
 
-: <gamestate> ( gameuielements -- game )
-    gamestate boa ;
 : <gameuielements> ( goalgadget actiongadget stackgadget ingredientsgadget -- gameuielements )
     gameuielements boa ;
 
