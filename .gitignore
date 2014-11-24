@@ -1,4 +1,6 @@
-project-proposal.pdf
-project-proposal.log
-project-proposal.aux
-
+*.log
+*.aux
+*.ent
+*.out
+*.gz
+thoughts

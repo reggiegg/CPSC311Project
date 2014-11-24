@@ -48,6 +48,8 @@
 \documentclass{sig-alternate}
 \usepackage{hyperref}
 \usepackage{breakurl}
+\usepackage{endnotes}
+\usepackage{cite}
 
 \makeatletter
 \def\@copyrightspace{\relax}
@@ -165,7 +167,7 @@ Factor is a richly-featured stack-based, concatenative, object-oriented programm
 
 \section{Introduction}
 We will be creating a substantial program in Factor\footnote{ \url{http://factorcode.org}} ---a concatenative, stack-based
-programming language. 
+programming language that none of us has studied previously. 
 Our game will educate and illustrate to players the
 unique paradigm of concatenative languages. We intend to create
 said game in Factor, which is itself a concatenative language.
@@ -183,7 +185,7 @@ and inline assembly code. Although we don't expect that coding our
 program will take us in that particular direction, this
 juxtaposition of high and low levels puts Factor in the same camp as Go\footnote{\url{https://golang.org/}} or Rust\footnote{\url{http://www.rust-lang.org/}}---just like C (or perhaps, in Factor's legacy, Forth\footnote{\url{http://www.forth.com}}) was forty years ago---and that under the right circumstances, this could be
 quite useful (albeit, potentially quite dangerous, too!).  Ultimately, "Factor combines features from existing languages with new
-innovations"\footnote{Slava Pestov, et al, "Factor: A Dynamic Stack-based Programming Language", \textit{ACM Proceedings}, 2010.}, and it is through that eclectic mix of tools for approaching problems\footnote{Slava Pestov, \textit{Factor/Features/The language}, 2010. \url{http://concatenative.org/wiki/view/Factor/Features/The\%20 language}}, that we will explore Factor, perhaps leading to surprising solutions, and some of those might turn out to be quite enlightening.
+innovations"\footnote{Slava Pestov, et al, "Factor: A Dynamic Stack-based Programming Language", \textit{ACM Proceedings}, 2010.}, and it is through that eclectic mix of tools for approaching problems\footnote{Slava Pestov, \textit{Factor/Features/The language}, 2010. \url{http://concatenative.org/wiki/view/Factor/Features/The\%20 language}}, that we we will explore Factor, perhaps leading to surprising solutions, and some of those might turn out to be quite enlightening.
 \\\\
 In spite of the diverse approaches to programming that Factor
 provides, its syntax demands that actual coding will always be stack-based
@@ -191,13 +193,13 @@ provides, its syntax demands that actual coding will always be stack-based
 patterns, that we find the most interesting, and potentially, the most
 useful. Concatenative syntax is point-free (although Factor does
 provide identifiers and its creators recommend using them for
-particularly complex situations\footnote{Slava Pestov, Factor Philosophy - Factor Documentation \url{http://docs.factorcode.org/content/article-cookbook-philosophy.html}}), and stack-based languages use
+particularly complex situations), and stack-based languages use
 postfix operators; both of these syntactical styles are atypical among
 today's most popular programming languages (with the exception of
 Haskell, which has a popular point-free style). This means that Factor
 has a unique way of expressing and exploring, and we will develop a
 new way of looking at problems that could come in handy in our future
-endeavours\footnote{Jon Purdy, \textit{Why Concatenative Programming Matters}, 2012. \url{http://evincarofautumn.blogspot.ca/2012/02/why-concatenative-programming-matters.html}}. In the course of working on our program, we will try to
+endeavours\cite{Jon Purdy, \textit{Why Concatenative Programming Matters}, 2012. \url{http://evincarofautumn.blogspot.ca/2012/02/why-concatenative-programming-matters.html}}. In the course of working on our program, we will try to
 use as many of these strange idioms and patterns as we can. The
 creators of Factor have given evocative names to many of these; we
 intend to produce a program turgid (where appropriate, that is) with
@@ -211,8 +213,8 @@ idiomatic way to ``write code that writes code''\footnote{Slava Pestov, Control 
 \section{Our Approach}
 \subsubsection*{The 80\% -- Background Research Report}
 To complete this milestone, we will research even more
-extensively the advantages (and disadvantages) of Factor as a
-language. Principally, we will describe the concatenative and stack-based language paradigms, how Factor implements them, while comparing Factor's implementation and syntax to those of other stack-based languages (such as PostScript\footnote{\url{http://www.adobe.com/products/postscript/}}). We will focus on Factor's features that we plan to use in our game, such as: input, output/graphics, control flow, unit testing, and object-orientedness. Throughout this section our theme will be constantly appraising and re-appraising Factor's usefulness.
+extensively about the advantages (and disadvantages) of Factor as a
+language, principally by describing the concatenative and stack-based language paradigms, how Factor implements them, while comparing Factor's implementation and syntax to those of other stack-based languages (such as PostScript\footnote{\url{http://www.adobe.com/products/postscript/}}). We will focus on Factor's features that we plan to use in our game, such as: input, output/graphics, control flow, unit testing, and object-orientedness. Throughout this section our theme will be constantly appraising and re-appraising Factor's usefulness.
 
 \subsubsection*{The 90\% -- Proof-of-Concept and Plan}
 In order to create a game, we will need to (1) learn how to code in Factor, (2) make sure that Factor has the tools we need to do what we want to do, and (3) have a game design in mind. In this section, we will demonstrate that all three things are possible. For (3), we will provide a detailed layout for the game that we will complete. It will be our plan, henceforth, to implement every element that we describe in this layout, so it is this at this milestone that the bulk of our game's design will be finally decided. (2) and (1) go hand-in-hand: by fulfilling (2), we will be proving that we can fulfill (1).  In order to fulfill (2), we will implement tiny programs that highlight key features that this game will rely on. The features we intend to demonstrate are the following:
@@ -221,9 +223,9 @@ In order to create a game, we will need to (1) learn how to code in Factor, (2) 
 \item \textbf{Input}: A tiny program to demonstrate that we can dynamically read user input, be it through text, arrow-keys, mouse, or some combination.
 \item \textbf{Control Flow}: Since the backbone of our game will rely on a game loop, we will demonstrate that Factor provides sufficient control flow structures to make a loop, as well as make decisions.
 \item \textbf{Unit Testing}: Robust program development requires reliable and easy testing. Factor provides a unit testing framework, and we will demonstrate that it meets those criteria.
-\item \textbf{Object-Orientedness}: Factor is an object-oriented language. Since there are a number of different ways of implementing the object-oriented concepts, we will demonstrate that Factor's extensible approach is suitable for us by doing some basic object/method manipulations.
+\item \textbf{Object-Orientedness}: Factor is an object-oriented language. Since there are a number of different ways of implementing the object-oriented concepts, we will demonstrate that Factor's extensible approach is suitable for us, by doing some basic object/method manipulations.
 \end{itemize}
-Some, if not all, of these features can be demonstrated together in tiny programs, or some may be best shown in multiple programs, so our proof-of-concept may not consist of exactly five programs. It is also possible that, as we get to know Factor better, we will discover other features that we determine to be indispensable for our game, in which case we will demonstrate them here also. 
+Some, if not all, of these features can be demonstrated together in tiny programs, or some may be best shown in multiple programs, so our proof-of-concept may not consist of exactly five programs. It is also possible that, as we get to know Factor better, we will discover other features that we determine to be indispensable for our game, in which case we will demonstrate them also. 
 
 
 \subsubsection*{The 100\% -- Final Project} 
@@ -232,7 +234,7 @@ Our core game engine will be implemented in Factor, including at least one level
 The effect that idiomatic use of Factor will have on our code has two main components. One is simply that fact that \textit{we are using Factor}, so all of the standard things that one does while programming will be done using Factor's particular---and sometimes unusual---implementations. In particular, we refer to the features that we will demonstrate in the \textit{Proof-of-Concept}, described below. The other component is rooted in the fact that Factor's tagline (yes, this language has a tagline) is "A Practical Stack Language"\footnote{\url{http://factorcode.org/}}, so it has developed a number of features to make its concatenative syntax more convenient (such as the aforementioned \textit{combinators}). We will be using these features as well as the stack-based, concatenative syntax in general, and this will affect how we think about the code that we write. Upon completion will make a value judgement on the usefulness of the concatenative paradigm.
 
 \subsubsection*{The Poster}
-The poster will have three purposes; these correspond nicely to the three components of the \textit{Proof-of-Concept}, described above. The first purpose will be to introduce people to the likely-unfamiliar concept of stack-based programming and its point-free, concatenative syntax. Some nice stack images will help with this. The second component will feature Factor specifically: we will choose one or more particularly-interesting features of Factor (likely, these will include a unique solution to a common concatenative problem---e.g., readability); we will then display some code that exemplifies this, and have some stack-based, graphical explanations of them. Finally, there will be a small component that describes the game that we made: our peers will be able to see some real Factor code from a real program! In fact, by then, enough of the game will have been completed that we could potentially have a computer set up and provide a small demonstration of our Factor-coded game for our peers.
+The poster will have three purposes; these correspond nicely to the three components of the \textit{Proof-of-Concept}, described above. The first purpose will be to introduce people to the likely-unfamiliar concept of stack-based programming and its point-free, concatenative syntax. Some nice stack images will help with this. The second component will feature Factor specifically: we will also choose one or more particularly-interesting features of Factor (likely, these will include a unique solution to a common concatenative problem---e.g., readability); we will then display some code that exemplifies this, and have some stack-based, graphical explanations of them. Finally, there will be a small component that describes the game that we made: our peers will be able to see some real Factor code from a real program! In fact, by then, enough of the game will have been completed that we can even have a computer set up and provide a small demonstration of our Factor-coded game for our peers.
 
 \section{Starting Points}
 We have found several scholarly articles and online resources
@@ -258,8 +260,10 @@ A presentation written in Factor which mentions and praises Factor
 
 
 \section{Summary}
-We are creating a substantial program in Factor; a programming language that none of us have studied previously. Factor is a concatenative, stack-based programming language and we will be using it to make a game which, correspondingly, helps to teach users about stack-based languages.
+We are creating a substantial program in Factor; a programming language that none of us have studied previously. Factor is a concatenative, stack-based programming language and we will be using it to make a game which helps to teach users about stack-based languages.
 
+
+\theendnotes
 
 \balancecolumns
 \end{document}

@@ -1,0 +1,391 @@
+% This is "sig-alternate.tex" V2.0 May 2012
+% This file should be compiled with V2.5 of "sig-alternate.cls" May 2012
+%
+% This example file demonstrates the use of the 'sig-alternate.cls'
+% V2.5 LaTeX2e document class file. It is for those submitting
+% articles to ACM Conference Proceedings WHO DO NOT WISH TO
+% STRICTLY ADHERE TO THE SIGS (PUBS-BOARD-ENDORSED) STYLE.
+% The 'sig-alternate.cls' file will produce a similar-looking,
+% albeit, 'tighter' paper resulting in, invariably, fewer pages.
+%
+% ----------------------------------------------------------------------------------------------------------------
+% This .tex file (and associated .cls V2.5) produces:
+%       1) The Permission Statement
+%       2) The Conference (location) Info information
+%       3) The Copyright Line with ACM data
+%       4) NO page numbers
+%
+% as against the acm_proc_article-sp.cls file which
+% DOES NOT produce 1) thru' 3) above.
+%
+% Using 'sig-alternate.cls' you have control, however, from within
+% the source .tex file, over both the CopyrightYear
+% (defaulted to 200X) and the ACM Copyright Data
+% (defaulted to X-XXXXX-XX-X/XX/XX).
+% e.g.
+% \CopyrightYear{2007} will cause 2007 to appear in the copyright line.
+% \crdata{0-12345-67-8/90/12} will cause 0-12345-67-8/90/12 to appear in the copyright line.
+%
+% ---------------------------------------------------------------------------------------------------------------
+% This .tex source is an example which *does* use
+% the .bib file (from which the .bbl file % is produced).
+% REMEMBER HOWEVER: After having produced the .bbl file,
+% and prior to final submission, you *NEED* to 'insert'
+% your .bbl file into your source .tex file so as to provide
+% ONE 'self-contained' source file.
+%
+% ================= IF YOU HAVE QUESTIONS =======================
+% Questions regarding the SIGS styles, SIGS policies and
+% procedures, Conferences etc. should be sent to
+% Adrienne Griscti (griscti@acm.org)
+%
+% Technical questions _only_ to
+% Gerald Murray (murray@hq.acm.org)
+% ===============================================================
+%
+% For tracking purposes - this is V2.0 - May 2012
+
+\documentclass{sig-alternate}
+\usepackage{hyperref}
+\usepackage{breakurl}
+\usepackage{endnotes}
+
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+
+\begin{document} \sloppy
+
+%
+% --- Author Metadata here ---
+% \conferenceinfo{University of British Columbia}{Vancouver, BC, Canada}
+% \CopyrightYear{2014} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
+% \crdata{}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+% --- End of Author Metadata ---
+
+\title{Background Report:  Factor as a Practical Language for Software Applications}
+% \subtitle{[Extended Abstract]
+% \titlenote{A full version of this paper is available as
+% \textit{Author's Guide to Preparing ACM SIG Proceedings Using
+% \LaTeX$2_\epsilon$\ and BibTeX} at
+% \texttt{www.acm.org/eaddress.htm}}}
+%
+% You need the command \numberofauthors to handle the 'placement
+% and alignment' of the authors beneath the title.
+%
+% For aesthetic reasons, we recommend 'three authors at a time'
+% i.e. three 'name/affiliation blocks' be placed beneath the title.
+%
+% NOTE: You are NOT restricted in how many 'rows' of
+% "name/affiliations" may appear. We just ask that you restrict
+% the number of 'columns' to three.
+%
+% Because of the available 'opening page real-estate'
+% we ask you to refrain from putting more than six authors
+% (two rows with three columns) beneath the article title.
+% More than six makes the first-page appear very cluttered indeed.
+%
+% Use the \alignauthor commands to handle the names
+% and affiliations for an 'aesthetic maximum' of six authors.
+% Add names, affiliations, addresses for
+% the seventh etc. author(s) as the argument for the
+% \additionalauthors command.
+% These 'additional authors' will be output/set for you
+% without further effort on your part as the last section in
+% the body of your article BEFORE References or any Appendices.
+
+\numberofauthors{5} %  in this sample file, there are a *total*
+% of EIGHT authors. SIX appear on the 'first-page' (for formatting
+% reasons) and the remaining two appear in the \additionalauthors section.
+%
+\author{
+% You can go ahead and credit any number of authors here,
+% e.g. one 'row of three' or two rows (consisting of one row of three
+% and a second row of one, two or three).
+%
+% The command \alignauthor (no curly braces needed) should
+% precede each author name, affiliation/snail-mail address and
+% e-mail address. Additionally, tag each line of
+% affiliation/address with \affaddr, and tag the
+% e-mail address with \email.
+%
+% 1st. author
+\alignauthor
+Reggie Gillett\\
+\affaddr{27133123}\\
+\affaddr{w6k8}\\
+\email{reggie.gillett@gmail.com}
+% 2nd. author
+\alignauthor
+Graham St-Laurent\\
+\affaddr{23310121}\\
+\affaddr{i5l8}\\
+\email{gstlaurent@gmail.com}
+% 3rd. author
+\alignauthor Lynsey Haynes\\
+\affaddr{12686119}\\
+\affaddr{a4h8}\\
+\email{lynseyahaynes@gmail.com}
+\and  % use '\and' if you need 'another row' of author names
+% 4th. author
+\alignauthor Brittany Roesch\\
+\affaddr{22015119}\\
+\affaddr{r1d8}\\
+\email{brroesch@gmail.com}
+% 5th. author
+\alignauthor Gord Minaker\\
+\affaddr{34615112}\\
+\affaddr{u4s8}\\
+\email{gordonminaker@hotmail.com}
+}
+% % There's nothing stopping you putting the seventh, eighth, etc.
+% % author on the opening page (as the 'third row') but we ask,
+% % for aesthetic reasons that you place these 'additional authors'
+% % in the \additional authors block, viz.
+% \additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+% email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+% (The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+% \date{30 July 1999}
+% Just remember to make sure that the TOTAL number of authors
+% is the number that will appear on the first page PLUS the
+% number that will appear in the \additionalauthors section.
+
+\maketitle
+\begin{abstract}
+Factor is a concatenative and object-oriented programming language. This paper explores some of the unique features of contatenative programming languages and Factor in particular. We investigate features of Factor necessary for the implementation of an interactive game, and discuss the implications of their use. 
+\end{abstract}
+
+% % A category with the (minimum) three required fields
+% \category{H.4}{Information Systems Applications}{Miscellaneous}
+% %A category including the fourth, optional field follows...
+\category{D.3.3}{Programming Languages}{Language Constructs and Features}
+
+\terms{Languages}
+
+\keywords{Factor, stack-based languages, concatenative languages}
+
+\section{Introduction}
+Our discussion centers around an exploration of Factor as a programming language. 
+The impetus of our exploration will be an evaluation of Factor's elements and features in the context of developing a computer game. We will focus on what makes Factor unique and highlight aspects with particular value to the creation of a substantial programming project.
+
+\section{Features of Factor} 
+\subsection{Factor as a Concatenative Language}
+
+\subsubsection{Stack Paradigm}
+A stack-based language uses an operand stack to pass function arguments and return function values.\endnote{Pestov, S., Ehrenberg, D., Groff, J.:\textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)} Literals, like numbers and strings, can be thought of as functions with no arguments that push themselves onto the stack. Operators and functions are applied to values already pushed onto the stack. The stack gets used in replace of, and possibly in addition to, named variables. Thus function calls are referred to as ``words", since they are not followed by their arguments.
+
+\subsubsection*{\textit{Postfix Syntax}}
+Factor uses a postfix syntax, with operands being written first, followed by their operator or word. The order of operations is not held, rather values and operators are evaluated in the order in which they come. The combination of an operand stack and postfix syntax can make algebraic expressions look complicated and unintuitive.\endnote{The Big Mud Puddle: Why Concatenative Programming Matters
+<\url{http://evincarofautumn.blogspot.ca/2012/02/why-concatenative-programming-matters.html}>} For example, the relatively simple expression: 
+	
+\begin{verbatim}
+	f(x, y, z) = y2 + x2 - |y|
+\end{verbatim}
+
+could be written as: 
+
+\begin{verbatim}
+	f = drop dup dup * swap abs rot3 dup * swap - +
+\end{verbatim}
+
+in a postfix language such as Factor. Despite its initially steep learning curve, postfix syntax combined with a stack base are easy for a computer to compile and generally have good performance. And once accustomed to it, according to Factor creator Slava Pestov, it becomes quite readable. In his words (where he malaprops the bicycle simile): 
+\begin{quotation}
+Learning a stack language is like learning to ride a bicycle: it takes a bit of practice and you might graze your knees a couple of times, but once you get the hang of it, it becomes second nature.\endnote{\url{http://docs.factorcode.org/content/article-cookbook-philosophy.html}}
+\end{quotation}
+
+\subsubsection*{\textit{Dataflow Combinators}}
+The stack manages the data flow of the program.\endnote {Factor/FAQ <\url{http://concatenative.org/wiki/view/Factor/FAQ}>} Since all operators work on the items at the top of the stack, dataflow combinators can rearrange or remove elements on the stack as the programmer needs. They can also be used to perform an operation while keeping its input intact, or apply a single operator or sets of operators to multiple values.\endnote{Dataflow combinators - Factor Documentation (Dataflow combinators - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-dataflow-combinators.html}>} For example, the dip combinators will ignore a specified number of values on the top of the stack to invoke an operator further down on the stack:
+
+\begin{verbatim}
+	dip2 (x quot -- x ) 
+\end{verbatim}
+
+This hides the first element of the stack temporarily to apply the second element. The most prevalent dataflow combinators in Factor are dup (duplicates a stack element), drop (pops a stack element) , and swap (exchanges the first and second elements).\endnote{Factor: a practical stack language: Prevalence of shuffle words and dataflow combinators
+<\url{http://factor-language.blogspot.ca/2008/12/prevalence-of-shuffle-words-and.html}>} Dataflow combinators would no doubt be essential to a game built in Factor.
+
+\subsubsection{Lexical Scope}
+In a lexically-scoped language, the value of an identifier can be completely determined by looking at the program text, meaning the analysis can be done statically. Lexical resolution is determined at compile time and is also known as early binding.  Most modern languages are lexically scoped, as developers and maintenance programmers have an easier time understanding lexically scoped languages, and compiler developers have an easier time writing efficient compilers.  There are still a few dynamically scoped languages in common usage though; PostScript, the programming language which runs on printers, is perhaps the most commonly used of them.\endnote{What is lexical scoping? (Fabulous adventures in coding)
+<\url{http://ericlippert.com/2013/05/20/what-is-lexical-scoping/}>}  Factor initially did not provide support for lexical scoping, but it has since been implemented as default. Adopting lexical scope enables two major changes in the programming language.  It makes it easy to construct function closures and to construct objects with mutable state.\endnote{Gentleman, R., \& Ihaka, R. Lexical Scope and Statistical Computing. Retrieved from <\url{http://cran.r-project.org/doc/misc/lexical.tex}>}
+
+\subsubsection*{\textit{Quotations}}
+
+In Factor, a quotation is enclosed within square brackets and contains a sequence of literals and words.  The following example demonstrates that the quotation is passed as the single object onto the stack.
+
+\begin{verbatim}
+[ "hello" . ]
+
+--- Data stack:
+[ "hello" . ]
+\end{verbatim}
+
+But quotations do not keep track of the environment. In Pestov's words:
+\begin{quotation}
+Quotations do not close over any lexical environment; they are entirely self-contained, and their evaluation semantics only depend on their elements, not any state from the time they were constructed.  So quotations are anonymous functions but not closures.\endnote{Factor: a practical stack language: How Factor implements closures
+<\url{http://factor-language.blogspot.ca/2010/01/how-factor-implements-closures.html}>}
+\end{quotation}
+
+
+\subsubsection*{\textit{Lexical Closures}}
+
+To define a word which uses lexically scope variables, you use \texttt{::} to define a word which internally performs all the necessary rewriting to make closure conversion and lexical scoping work.\endnote{Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)} (Normal function definition uses single semicolon \texttt{:}, instead.)  You follow the word name with a list of locals enclosed in pipe (`\textbar') characters and use these locals anywhere in the body of the word. Whereas normally the names of input parameters in the stack effect declaration have no meaning, a word with named parameters makes those names available in the lexical scope of the word's definition.  The following is an example word using locals:
+
+\begin{verbatim}
+:: add-test | x y z | x y + z + ;
+1 2 3 add-test .
+  6
+\end{verbatim}
+
+Also within the scope of a :: definition, additional lexical variables can be bound using the :> operator, which binds either a single value from the data stack to a name, or multiple stack values to a list of names surrounded by parentheses.\endnote{Dataflow combinators - Factor Documentation (Dataflow combinators - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-dataflow-combinators.html}>
+\\\\} For example, if you were to provide the following code within a word body,
+
+\begin{verbatim}
+1 2 + :> x
+\end{verbatim}
+
+the name 'x' would be bound to the value 3 and is in scope within the body anywhere after the initial binding.
+\\\\
+All locals are stored on the retain stack, which is separate from the data stack.  This means that internally it forms all of the inputs of a lambda into an array, which is then moved to the retain stack.  Named parameter accesses are rewritten into the code which moves this parameter array to the data stack, pulls out the right element and moves it back to the retain stack \endnote{Factor: a practical stack language: How Factor implements closures
+<\url{http://factor-language.blogspot.ca/2007/03/adding-named-parameters-to-factor.html}>}.
+\\\\
+In a stack-based language, lexical variables, and in particular lexically-scoped closures are a useful extension of the concatenative paradigm.  They can particularly become helpful when there is no obvious solution to a problem in terms of re-arranging operands at the top of the stack \endnote{Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)}. 
+
+\subsubsection{Point Free Style}
+
+As stated above, Factor provides local variables, but they are used in only a small minority of procedures because its language features allow most code to be comfortably written in a point-free style.  Point-free style is utilized by all known concatenative languages and is a programming paradigm in which function definitions do not identify the arguments (or ``points") on which they operate. Instead the definitions merely compose other functions, among which are combinators that manipulate the arguments.\endnote{Tacit programming (Wikipedia)
+<\url{http://en.wikipedia.org/wiki/Tacit_programming}>}
+\\\\
+For example, consider this sequence of operations in a hypothetical applicative language (that closely resembles Python):
+
+\begin{verbatim}
+def example(x):
+   y = foo(x)
+   z = bar(y)
+   w = baz(z)
+   return w
+\end{verbatim}
+
+Another way of writing that emphasizes the function composition: 
+\begin{verbatim}
+def example(x):
+    return baz(bar(foo(x)))
+\end{verbatim}
+
+Notice how \texttt{baz} is the last thing that function to get called, but it occurs first---i.e., it is the leftmost. Now let's see how the same series of functions would look in Haskell using point-free style and function composition: 
+
+\begin{verbatim}
+example = baz . bar . foo
+\end{verbatim}
+
+Notice the lack of parameters (the \texttt{.} is Haskell's way of signifying composition), as well as the fact that the lastmost function to be applied is the first one to appear. This can intuitively be understood as saying ``\texttt{example} is the composition of \texttt{baz}, \texttt{bar}, and \texttt{foo}."  In a concatenative language like Factor, however, this same sequence would look something like this:
+
+\begin{verbatim}
+: example   foo bar baz ;
+\end{verbatim}
+
+Once again, no parameter appears so it is the function composition that is emphasized. But in this case, the functions appear in the order that they are called, so the intuitive reading is simply ``\texttt{example} is a \texttt{baz}, a \texttt{bar}, and a \texttt{foo}", which is a subtly different perspective. We find that this postfix perspective emphasizes the process, whereas the other, prefix perspective emphasizes the product as a whole. % * <gstlaurent@gmail.com> 2014-11-11T02:17:33.358Z:
+%
+% I edited someone's lovely examples. (I just added to it a bit.) I liked them and wanted to play too. I hope you don't mind. -Graham
+%
+% ^ <gstlaurent@gmail.com> 2014-11-11T02:17:40.259Z.
+\\\\
+Regardless of the perspective, however, there are clear benefits to implementing code in point-free style.  One advantage is that it allows the programmer to be succinct.  It also allows the user to think of what the code is doing with the image of \textit{composing functions} rather than imagining the process of arguments flowing through.
+
+\section{Features Required for Effective Software Design} 
+\subsection{Control Flow Structures}
+Central to the programming of any game are control flow structures. 
+ Loops and conditional expressions are integral to the construction of any game, 
+ simple or complex. For example, in virtually all games there exists code to interpret 
+ user input. Typically this consists of a single or  series of if statements which execute 
+ particular actions based on a key pressed by the user.\endnote{Game Programming Patterns / Design Patterns Revisited <\url{http://gameprogrammingpatterns.com/command.html}>} For even the simplest games this
+ is fundamental to their implementation. Take for an example a simple number guessing game, at 
+  some point the program will have to evaluate if the number entered by the user matches the 
+  number to be guessed. This control pattern is often included in a \textit{game loop}, another essential 
+  piece of most games rooted in control flow.\endnote{Game Programming Patterns / Design Patterns Revisited <\url{http://gameprogrammingpatterns.com/command.html}>}. The \textit{game loop} executes continuously processing 
+  user input, updating the game state and rendering the game on each turn.\endnote{Game Programming Patterns / Design Patterns Revisited <\url{http://gameprogrammingpatterns.com/game-loop.html}>}
+\\\\
+All control flow structures in Factor are expressed using higher-order functions, functions which take
+ functions as arguments. In the tradition of other stack-based languages such as Joy, these are referred
+  to as \textit{combinators}. Combinators operate like any other word in Factor, taking their arguments from the 
+  stack, however unlike other words, these arguments are quotations rather than literals.\endnote{ Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)} The previously-mentioned example of a number guessing game gives the example illustrated below, which illustrates
+    the use of the if combinator:    
+    \begin{verbatim}
+: guessed-number ( n -- ) 
+   secret-number  = 
+   [ "You guessed it!" print ] 
+   [ "Nope, that's not it" print ] 
+   if ; 
+\end{verbatim} 
+        It assumes our secret number is a constant defined elsewhere. We can see
+     that if takes 3 arguments, a boolean and two quotations. Any object in the place of the boolean other
+      than the special object f evaluates to true.\endnote{Control flow cookbook - Factor Documentation (Control flow cookbook - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-cookbook-combinators.html}>}
+\\\\
+All control Flow in Factor is achieved using the if combinator and recursion.\endnote{Pestov, S., Ehrenberg, D., Groff, J.: \textit{Factor: a dynamic stack-based programming
+language.} In: DLS 2010 Proceedings of the 6th Symposium on Dynamic Languages
+(2010)}. 
+Factor contains several looping combinators in its standard library which give the effect of iteration (\texttt{each}, \texttt{filter}, \texttt{map}, etc). All of these use recursion or branching
+  and recursion to achieve their effects.\endnote{Factor: a practical stack language: Prevalence of shuffle words and dataflow combinators
+<\url{http://factor-language.blogspot.ca/2008/12/prevalence-of-shuffle-words-and.html}>
+\\\\}
+  
+\subsection{User Interface}
+Any game will require the user to interact with the machine, so there will always be some sort of user interface. Factor provides a vocabulary implementing a cross-platform, object-based Graphical User Interface,\endnote{\url{http://docs.factorcode.org/content/article-ui.html}} so using Factor for our game should be relatively painless.
+
+In Factor's User Interface vocabulary, graphical control elements are of the type \texttt{gadget}, with the outermost gadget---the window itself---being subtype of gadget called a \texttt{world}. Ultimately, the world is simply the topmost node in a tree of gadgets. The UI is implemented using OpenGL, and Factor does provide a vocabulary with bindings to OpenGL, so full-featured 3D graphics are possible, as well as more basic 2D graphics. Although the gadget class is open-ended and there are many developer options for the UI, it does come with some basic types such as the \texttt{label}, \texttt{button}, or \texttt{editor}. Depending on time, we may try to implement some graphics, but simply providing a text area to read from, and an area that includes text output may be all we get to do.
+
+Consequently, since Factor also provides built-in words that access \textit{standard output} and \textit{standard input}, instead of taking a GUI route, we may alternatively end up creating a text-based console application.
+
+\subsection{Unit Testing}
+In the development of any non-trivial software application, unit testing is a necessary first step to ensure error-free code. A programming language which lacks a unit-testing framework should be quickly forgotten. Factor has a fully adequate unit-testing framework that so that testing can begin quickly without installing or configuring external frameworks. 
+\\\\
+   By simply typing ``\textit{<vocabulary-name>} \texttt{scaffold-tests}" into the listener, a test file is created. Within the test file, tests are typically written in the following format:
+
+\begin{verbatim}
+[<expected-output>] [ <input> ] unit-test
+\end{verbatim}
+
+Tests can be run at any time from the listener by typing ``\textit{<vocabulary-name>} \texttt{test}". Failing tests are able to be debugged using the built-in error list tool.\endnote{Unit testing - Factor Documentation (Unit testing - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-tools.test.html}>}
+
+\subsection{Object Orientedness}
+Factor is an object oriented programming language whose object system is unique from other common languages. In Factor, every value is treated as an object where an object can belong to an instance of one or more classes.\endnote{Factor - Progopedia
+<\url{http://progopedia.com/language/factor/}>} Each object holds a type value along with components and their instances are stored within words. Here we will consider the definition, instantiation, and modification of objects in Factor.
+ 
+\subsubsection{Object Class Definitions: Tuples \& Slots}
+Classes in Factor are defined in terms of Tuples which hold objects belonging to the class in `Slots'. Like other OO languages, classes can inherit from specified superclasses and the ``final" designation is used for classes which should not be further subclassed. A typical class definition in Factor is written in the format:
+
+\begin{verbatim}
+TUPLE: <class-name> <slot1> <slot2> ... ;
+\end{verbatim}
+As an example:
+
+\begin{verbatim}
+TUPLE: student sid name gpa ;
+\end{verbatim}
+
+Defines a new class named `student' which has fields, termed ``slots", for the values of sid, name, and gpa. Unlike other object systems, methods cannot belong to classes in Factor. \endnote{Control flow cookbook - Factor Documentation (Control flow cookbook - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-cookbook-combinators.html}>}
+ 
+\subsubsection{Object modification - Methods}
+Similar to the Common Lisp Object System (CLOS), methods in Factor cannot belong to classes. Rather, a structure termed a ``generic word" defines zero or more methods all with the intention of performing the same functionality, normally using a different implementation for each specified input class type. When a generic word is referenced in the program, it will execute the method whose signature is most appropriate for the input to the call.\endnote{Double, C. (2013, April 22). Factor Articles - Work in Progress. Retrieved from <\url{http://bluishcoder.co.nz/factor-articles.pdf}>}
+
+\section{Summary} 
+While the unique syntax of Factor might serve as initially as a deterrent to adopting the language for more ambitious software applications, if one persists its many benefits quickly become evident. Lexical scope gives Factor flexibility that can be lacking in other stack-based languages. Its point-free style allows for succinct code which highlights function composition. It is also worth noting that its syntax, while challenging at first, is easy for the computer to compile.
+\\\\
+Through our investigations it has become evident that Factor is a language suited to not only creating a game, but to any software application. It possesses all the capabilities of any other functional language with a full compliment of libraries to extend its already rich feature set.\endnote{Libraries - Factor Documentation (Libraries - Factor Documentation)
+<\url{http://docs.factorcode.org/content/article-handbook-library-reference.html}>} As soon as we becomes acclimatized to Factor's more idiosyncratic qualities, we expect to receive a euphoric joy while programming with it. One might describe it as quirky but powerful. It is with confidence that the authors of this paper agree that Factor is suited to the creation of any substantial program.
+\\\\
+\theendnotes
+
+\balancecolumns
+\end{document}
