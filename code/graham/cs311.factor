@@ -123,7 +123,7 @@ M: text-gadget pref-dim* ( gadget -- {xy} ) drop { 100 200 } ;
     <super-gadget>
     <pile>
     <graham-gadget> add-gadget
-    <textcd gr-gadget> add-gadget
+    <text-gadget> add-gadget
     add-gadget "Goodness!" open-window ;
 
 
