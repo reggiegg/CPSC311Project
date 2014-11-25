@@ -20,14 +20,15 @@ TUPLE: stacktory goal stack actions ;
 
 GENERIC: grill ( ingredient -- ingredient )
 GENERIC: iswap ( stack -- stack )
-GENERIC: serve ( stack -- stack x )
+GENERIC: serve ( stack -- stack )
 GENERIC: cook ( stack -- stack )
 GENERIC: execute ( action -- x )
 
+DEFER: <cookedmeat>
 M: ingredient grill ; ! cook the Ingredient
-M: rawmeat grill drop cookedmeat new ; ! grill the meat
+M: rawmeat grill drop <cookedmeat> ; ! grill the meat
 M: stack iswap dup stack>> [ first2 ] keep 2 tail rot prefix swap prefix >>stack ; ! swap the top two ingredients
-M: stack serve dup stack>> game get-global goal>> goalstate>> sequence= [ "You got it!" ] [ "Not quite!" ] if ; ! compare stack to goal
+M: stack serve dup stack>> game get-global goal>> goalstate>> sequence= [ "You got it!" print ] [ "Not quite!" print ] if ; ! compare stack to goal
 M: stack cook dup stack>> dup first grill [ rest ] dip prefix >>stack ; ! cook top ingredient
 M: action execute  ; ! execute an action
 
