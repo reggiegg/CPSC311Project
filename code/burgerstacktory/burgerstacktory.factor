@@ -20,28 +20,34 @@ TUPLE: stacktory goal stack actions ;
 
 GENERIC: grill ( ingredient -- ingredient )
 GENERIC: iswap ( stack -- stack )
-GENERIC: serve ( stack -- stack )
+GENERIC: serve ( stack -- stack x )
 GENERIC: cook ( stack -- stack )
 GENERIC: execute ( action -- x )
 
 M: ingredient grill ; ! cook the Ingredient
 M: rawmeat grill drop cookedmeat new ; ! grill the meat
 M: stack iswap dup stack>> [ first2 ] keep 2 tail rot prefix swap prefix >>stack ; ! swap the top two ingredients
-M: stack serve ; ! compare stack to goal
+M: stack serve dup stack>> game get-global goal>> goalstate>> sequence= [ "You got it!" ] [ "Not quite!" ] if ; ! compare stack to goal
 M: stack cook dup stack>> dup first grill [ rest ] dip prefix >>stack ; ! cook top ingredient
 M: action execute  ; ! execute an action
 
 : <rawmeat> ( -- rawmeat )
-    rawmeat new ;
+    rawmeat new "Raw Meat" >>name ;
 
 : <cookedmeat> ( -- cookedmeat )
-    cookedmeat new ;
+    cookedmeat new "Cooked Meat" >>name ;
 
 : <topbun> ( -- topbun )
-    topbun new ;
+    topbun new "Top Bun (with Sesame Seeds)" >>name ;
 
 : <bottombun> ( -- bottombun )
-    bottombun new ;
+    bottombun new "Bottom Bun" >>name ;
+
+: <goal> ( goalstack goaltext -- goal )
+    [ goal new ] dip
+    >>goaltext
+    swap >>goalstate
+     ;
 
 : <stack> ( -- stack )
     stack new
@@ -51,6 +57,19 @@ M: action execute  ; ! execute an action
     3array
     >>stack
      ;
+
+: <stacktory> ( -- )
+    stacktory new
+    <stack> >>stack
+    <topbun> <cookedmeat> <bottombun> 3array "A well cooked burger." <goal> >>goal
+    game set-global
+     ;
+
+: getstack ( -- stack )
+    game get-global stack>> ;
+
+: viewstack ( stack -- stack )
+    dup stack>> [ name>> print ] each ;
 
 : <gameuielements> ( goalgadget actiongadget stackgadget ingredientsgadget -- gameuielements )
     gameuielements boa ;
