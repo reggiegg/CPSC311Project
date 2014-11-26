@@ -90,7 +90,7 @@ M: action execute  ; ! execute an action
     <pile> swap
     [ goalui>> ] keep
     [ add-gadget ] dip
-    [ stack>> ] keep
+    [ stackui>> ] keep
     [ add-gadget ] dip
     [ add-gadget ] dip
     <pile> swap
