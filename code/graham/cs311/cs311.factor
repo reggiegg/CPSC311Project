@@ -153,11 +153,11 @@ SYMBOL: p
     [ "This is where some writing could go.\nPerhaps some instructions?." write ] with-pane
     add-gadget
 
-    { "~/Documents/ubc/courses/311/project/CPSC311Project/topbun.png"
-      "~/Documents/ubc/courses/311/project/CPSC311Project/grilledpatty.png"
-      "~/Documents/ubc/courses/311/project/CPSC311Project/rawpatty.png"
-      "~/Documents/ubc/courses/311/project/CPSC311Project/bottombun.png"
-      "~/Documents/ubc/courses/311/project/CPSC311Project/burger.png" }
+    { "topbun.png"
+      "grilledpatty.png"
+      "rawpatty.png"
+      "bottombun.png"
+      "burger.png" }
     [ <image-gadget> add-gadget ] each
     add-gadget
 
