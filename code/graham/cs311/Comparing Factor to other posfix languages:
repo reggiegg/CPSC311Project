@@ -1,0 +1,27 @@
+Comparing Factor to other posfix languages:
+
+To give some context to Factor's significance, we should see how it fits in with the small tradition of usefulpostfix languages.
+
+Factor's creators inherits most of its syntax and and terminology from Forth and Joy[note]. Forth has been around since the late 60s, and was designed to be able to be compiled quickly and still run fast, taking up tiny amounts of memory, and very little compile timel It has a terse syntax -- infact, some even claim it has NO syntax[note] -- words or numbers just get added execute sequentially, as assembler is designed to provide. Using postix and a stack makes this seuqntial nature possible; having whitespace be the delimeter to separate words an numbers is the other. And to keep file-size and keypresses to a minimum [note: maybe cm's history of forth?], commonly-used words are given short names :, ;, !, @. This is a language designed by engineers to do anything within the incredible contraints of the day.
+
+Joy, [although influcenced by Forth, is also strongly influced by lisp, and it adds a number of functional elements to the stack-based paradignm, including anonymous function passing, which it class quotations.It is more experimantal than designed for practical use. It has a fully concatenative syntax[does it?]. 
+    Types? 
+    Similar syntax to Forth
+        uses whitespace as sole deliminiter?
+
+Probably the most common postscript language in use today, though, is PostScript, which is the language of printers and pdf documents. According to some web(site, PostScript is influencedby Forth, but I they don't provide notes, and besides the postfix syntax, we see no similarities. It does not use whitespace as its sole delimiter. The symbols []/{}", can all be used directly next to a word and it will chence the context. So this language has the most sophisticated parser we've seen so far. It follows the postfix syntax even in function definition, unlike the previous. 
+
+Factor seems to be mostly influenced by Joy and Forth. It uses the same set of defining words, but with the quotation system of joy, but adds a lots of more complex combinators to work with quotations. This helps makes particularly consuign syntactical structures  less confusing, if you know these dataflow combinators. Unfortunately, its rih vocabulary of dataflow combinators, and fried quotations, adn whatnot seem to simply be pathes on a more fundaemtal legibility problem: postfix syntax AND whitespace delmitigion is universal.
+
+
+--WHAT fully-concatenative DOES THIS MEAN?: it means that, provided you do not cross any delimiting borders (eg, string start inside a string and end outside, or within a function definition and end outsid), then any code sequence can be cut out or inserted to produce a valid progarm (it may have stackunderflow or be given wrong arguemtnalso must also means that it s causing endless error, though, but it will still be syntacitcally-valid). It  also means that function compositin ois inherent to the nature of tle language: just write the functions in the order of innermost to outermost, left to write, with no other sybols necessary). --.
+
+-======
+Factor's Factors
+
+We start with a stack of burger ingredients. (topbun, bottombun, patty).
+We have a collection of functions (fry, flip, make-burger).
+
+User must choose the order of the functions. 
+
+If wrong, the burger is burnt or something. We give instant feedbalck
