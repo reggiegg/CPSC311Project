@@ -1,13 +1,15 @@
 ! Copyright (C) 2014 Your name.
 ! See http://factorcode.org/license.txt for BSD license.
-USING: namespaces kernel accessors classes 
+USING: namespaces kernel accessors classes  
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math ;
+io sequences arrays math.parser math combinators 
+stacktory.goal stacktory.ingredient stacktory.stack stacktory.button stacktory.game ;
 
 IN: stacktory
 
 
+TUPLE: stacktory-gadget < gadget stacktory ;
 
 
 SYMBOL: game
@@ -29,35 +31,24 @@ DEFER: <cookedmeat>
 
 
 
-: <stacktory> ( -- )
-    stacktory new
-    <stack> >>stack
-    <topbun> <cookedmeat> <bottombun> 3array "A well cooked burger." <goal> >>goal
-    game set-global
-     ;
 
-: getstack ( -- stack )
-    game get-global stack>> ;
+! : getstack ( -- stack )
+!     game get-global stack>> ;
 
-: viewstack ( stack -- stack )
-    dup stack>> [ name>> print ] each ;
+! : viewstack ( stack -- stack )
+!     dup stack>> [ name>> print ] each ;
 
 : <gameuielements> ( goalgadget actiongadget stackgadget ingredientsgadget -- gameuielements )
     gameuielements boa ;
 
-: makeworldattributes ( -- world-attributes ) T{ world-attributes { title "Burger Stacktory!" } } ;
+: makeworldattributes ( -- world-attributes ) 
+    T{ world-attributes { title "Burger Stacktory!" }  { pref-dim { 500 600 } } } ;
 
 
 
-: fakeui ( -- gameuielements )
-    <pane> dup [ "Goal/Story" print ] with-pane { 250 100 } >>pref-dim 
-    <pane> dup [ "Actions" print ] with-pane { 250 300 } >>pref-dim
-    <pane> dup [ "Stack" print ] with-pane { 250 500 } >>pref-dim
-    <pane> dup [ "Ingredients" print ] with-pane { 250 300 } >>pref-dim 
-    <gameuielements>
-     ;
 
-: renderui ( gameuielements -- )
+
+: assemble ( gameuielements -- shelfgadget )
     <shelf> swap
     <pile> swap
     [ goalui>> ] keep
@@ -70,15 +61,28 @@ DEFER: <cookedmeat>
     [ add-gadget ] dip
     ingredientsui>>
     add-gadget
-    add-gadget
-    makeworldattributes
-    open-window ;
+    add-gadget ;
 
-: makeitso ( -- )
-    fakeui
-    renderui ;
+: update-stacktory ( -- ) game get relayout-1 ;
+    
+: makecomponents ( stacktory -- gameuielements )
+    {
+        [ goalgadget ]
+        [ buttongadget ]
+        [ stackgadget ]
+        [ ingredientsgadget ]
+    } cleave <gameuielements> ;
 
 
 
+: <stacktory-gadget> ( -- stacktory-gadget )
+    <stacktory> dup game set-global
+    stacktory-gadget new over >>stacktory
+    swap makecomponents assemble add-gadget ;
 
 
+: stacktory-window ( -- )
+    [ <stacktory-gadget> makeworldattributes open-window ] with-ui ;
+
+
+MAIN: stacktory-window

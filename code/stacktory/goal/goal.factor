@@ -3,7 +3,7 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math stacktory.game ;
+io sequences arrays math.parser math  ;
 
 IN: stacktory.goal
 
@@ -15,4 +15,7 @@ TUPLE: goal goalstate goaltext ;
     swap >>goalstate
      ;
 
-: goalgadget ( stacktory -- gadget ) gadget new ;
+! STUB:
+: goalgadget ( stacktory -- gadget )
+    drop <pane> dup [ "Goal/Story" print ] with-pane { 250 100 } >>pref-dim ;
+

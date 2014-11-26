@@ -3,11 +3,12 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math stacktory.game ;
+io sequences arrays math.parser math stacktory.game stacktory.ingredient ;
 
 IN: stacktory.stack
 
 TUPLE: stack stack ;
+
 
 : <stack> ( -- stack )
     stack new
@@ -18,4 +19,6 @@ TUPLE: stack stack ;
     >>stack
      ;
 
-: stackgadget ( stacktory -- gadget ) gadget new ;
+! STUB:
+: stackgadget ( stacktory -- gadget )
+    drop <pane> dup [ "Stack" print ] with-pane { 250 500 } >>pref-dim ;

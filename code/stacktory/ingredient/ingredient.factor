@@ -23,3 +23,7 @@ TUPLE: bottombun < ingredient ;
 
 : <bottombun> ( -- bottombun )
     bottombun new "Bottom Bun" >>name ;
+
+! STUB:
+: ingredientsgadget ( stacktory -- gadget )
+    drop <pane> dup [ "Ingredients" print ] with-pane { 250 300 } >>pref-dim ;

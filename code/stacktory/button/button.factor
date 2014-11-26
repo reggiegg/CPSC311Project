@@ -3,8 +3,12 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arraesys math.parser math stacktory.action stacktory.game ;
+io sequences arrays math.parser math stacktory.action stacktory.game ;
 
 IN: stacktory.button
 
-: buttongadget ( stacktory -- gadget ) gadget new ;
+DEFER: update-stacktory
+
+! STUB:
+: buttongadget ( stacktory -- gadget )
+    drop <pane> dup [ "Actions" print ] with-pane { 250 300 } >>pref-dim ;
