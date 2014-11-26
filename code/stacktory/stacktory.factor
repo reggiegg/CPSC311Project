@@ -1,3 +1,5 @@
+! To run, type stacktory-window or type "stacktory" run at the listener
+
 ! Copyright (C) 2014 Your name.
 ! See http://factorcode.org/license.txt for BSD license.
 USING: namespaces kernel accessors classes  
@@ -8,44 +10,22 @@ stacktory.goal stacktory.ingredient stacktory.stack stacktory.button stacktory.g
 
 IN: stacktory
 
-
-TUPLE: stacktory-gadget < gadget stacktory ;
-
-
 SYMBOL: game
 
-
-
-! game get-global goal>>
-
-! : rendergoal ( goal -- gadget ) -- ;
-
+TUPLE: stacktory-gadget < gadget stacktory ;
 TUPLE: gameuielements goalui actionsui stackui ingredientsui ;
 
 
 
+: update-stacktory ( -- ) game get relayout-1 ;
 
-DEFER: <cookedmeat>
-
-
-
-
-
-
-! : getstack ( -- stack )
-!     game get-global stack>> ;
-
-! : viewstack ( stack -- stack )
-!     dup stack>> [ name>> print ] each ;
 
 : <gameuielements> ( goalgadget actiongadget stackgadget ingredientsgadget -- gameuielements )
     gameuielements boa ;
 
+
 : makeworldattributes ( -- world-attributes ) 
     T{ world-attributes { title "Burger Stacktory!" }  { pref-dim { 500 600 } } } ;
-
-
-
 
 
 : assemble ( gameuielements -- shelfgadget )
@@ -63,8 +43,7 @@ DEFER: <cookedmeat>
     add-gadget
     add-gadget ;
 
-: update-stacktory ( -- ) game get relayout-1 ;
-    
+
 : makecomponents ( stacktory -- gameuielements )
     {
         [ goalgadget ]
