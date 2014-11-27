@@ -2,7 +2,7 @@
 ! See http://factorcode.org/license.txt for BSD license.
 USING: prettyprint math kernel accessors ui ui.gadgets ui.render colors.constants opengl
 opengl.gl ui.gadgets.editors io images.viewer locals formatting combinators sequences
-ui.gadgets.packs namespaces ui.gadgets.panes ;
+ui.gadgets.packs namespaces ui.gadgets.panes ui.gadgets.buttons ;
 IN: cs311
 
 
@@ -149,29 +149,24 @@ SYMBOL: p
     <shelf>
 
     <pile>
-    <pane> dup { 200 200 } >>pref-dim
-    [ "This is where some writing could go.\nPerhaps some instructions?." write ] with-pane
+    <pane> dup { 200 200 } >>pref-dim  
+    [ "Your goal is:\na WELL-COOKED plain hamburger!\n\n\n\n\nThis consists of:\nBottom Bun, Cooked Meat, Top Bun\n\n\n\n\n\n" write ] with-pane
     add-gadget
 
-    { "topbun.png"
+    {
+      "topbun.png"
       "grilledpatty.png"
-      "rawpatty.png"
       "bottombun.png"
-      "burger.png" }
+    }
     [ <image-gadget> add-gadget ] each
     add-gadget
 
-    <pane> dup { 200 400 } >>pref-dim
-    [ """
-This is where the buttons will go.
-
-Later levels will have lots of buttons.
-
-But since we probably won't implement
-many levels, there might not be
-much to see here.
-
-The end.
-""" write ] with-pane
+    <pile> { 200 400 } >>pref-dim
+    "SWAP" [ ] <border-button> { 100 50 } >>pref-dim add-gadget
+    "COOK" [ ] <border-button> { 100 50 } >>pref-dim add-gadget
+    "SERVE" [ ] <border-button> { 100 50 } >>pref-dim add-gadget
     add-gadget
-    add-gadget "Hamburger" open-window ;
+    add-gadget "Hamburger Stacktory!" open-window ;
+
+
+      ! "rawpatty.png"

@@ -8,6 +8,17 @@ io sequences arrays math.parser math stacktory.stack stacktory.ingredient stackt
 IN: stacktory.game
 
 
+TUPLE: stack stack ;
+
+
+: <stack> ( -- stack )
+    stack new
+    <rawmeat>
+    <topbun>
+    <bottombun>
+    3array
+    >>stack
+     ;
 
 
 TUPLE: stacktory goal stack actions ;
