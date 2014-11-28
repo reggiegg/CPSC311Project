@@ -3,7 +3,7 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math stacktory.game stacktory.ingredient ;
+io sequences arrays math.parser math stacktory.game stacktory.ingredient stacktory.action ;
 
 IN: stacktory.stack
 
@@ -22,3 +22,7 @@ TUPLE: stack stack ;
 ! STUB:
 : stackgadget ( stacktory -- gadget )
     drop <pane> dup [ "Stack" print ] with-pane { 250 500 } >>pref-dim ;
+
+M: stack iswap dup stack>> [ first2 ] keep 2 tail rot prefix swap prefix >>stack ; ! swap the top two ingredients
+M: stack cook dup stack>> dup first grill [ rest ] dip prefix >>stack ; ! cook top ingredient
+M: stack serve dup stack>> game get-global goal>> goalstate>> sequence= [ "You got it!" print ] [ "Not quite!" print ] if ; ! compare stack to goal
