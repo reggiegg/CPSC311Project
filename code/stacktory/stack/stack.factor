@@ -3,12 +3,7 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-<<<<<<< HEAD
 io sequences arrays math.parser math stacktory.game stacktory.ingredient stacktory.action ;
-=======
-io sequences arrays math.parser math stacktory.game stacktory.ingredient 
-prettyprint ;
->>>>>>> e7068196f2a0ac39375a832c2ce79167a101ccb4
 
 IN: stacktory.stack
 

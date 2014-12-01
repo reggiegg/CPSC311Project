@@ -1,7 +1,8 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math locals images.viewer ;
+io sequences arrays math.parser math locals images.viewer 
+stacktory.action ;
 
 IN: stacktory.ingredient
 
@@ -33,4 +34,6 @@ TUPLE: bottombun < ingredient ;
     drop <pane> dup [ "Stack" print ] with-pane { 250 500 } >>pref-dim ;
 
       ! [ image>> ] <pane> swap with-pane { 250 300 } >>pref-dim ;
+M: ingredient grill ; ! cook the Ingredient
+M: rawmeat grill drop <cookedmeat> ; ! grill the meat
     

@@ -12,7 +12,7 @@ DEFER: makeswapbutton
 DEFER: makegrillbutton
 DEFER: makeservebutton
 
-:: <makeswapbutton> ( stacktory -- gadget ) "Swap" [ drop stacktory stack>> iswap stacktory stack<< ] <border-button> ;
+:: <makeswapbutton> ( stacktory -- gadget ) "Swap" [ drop stacktory stack>> iswap stacktory stack<< "swap" print ] <border-button> ;
 
 :: <makegrillbutton> ( stacktory -- gadget )  "Grill" [ drop stacktory stack>> cook stacktory stack<< ] <border-button> ;
 

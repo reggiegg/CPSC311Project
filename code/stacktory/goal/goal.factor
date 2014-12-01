@@ -3,7 +3,9 @@
 USING: namespaces kernel accessors classes 
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
-io sequences arrays math.parser math io.styles hashtables ;
+io sequences arrays math.parser math io.styles hashtables
+stacktory.goal stacktory.ingredient stacktory.stack stacktory.button stacktory.game ;
+
 
 IN: stacktory.goal
 
