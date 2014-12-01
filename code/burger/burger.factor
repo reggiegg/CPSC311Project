@@ -12,6 +12,7 @@ images.viewer
 IN: burger
 
 SYMBOL: game
+SYMBOL: gamegadget
 
 TUPLE: stacktory-gadget < gadget stacktory ;
 TUPLE: gameuielements goalui actionsui stackui ingredientsui ;
@@ -47,7 +48,7 @@ GENERIC: serve ( stack -- stack )
 
 DEFER: <stack>
 DEFER: <stacktory>
-: update-stacktory ( -- ) game get relayout-1 ;
+: update-stacktory ( -- ) gamegadget get relayout-1 ;
 
 
 ! STUB:
@@ -63,11 +64,11 @@ DEFER: <stacktory>
 
 
 
-:: <makeswapbutton> ( stacktory -- gadget ) "Swap" [ drop stacktory stack>> iswap stacktory stack<< update-stacktory ] <border-button> ;
+:: <makeswapbutton> ( stacktory -- gadget ) "Swap" [ drop stacktory [ iswap ] change-stack update-stacktory ] <border-button> ;
 
-:: <makegrillbutton> ( stacktory -- gadget )  "Grill" [ drop stacktory stack>> cook stacktory stack<< update-stacktory ] <border-button> ;
+:: <makegrillbutton> ( stacktory -- gadget )  "Grill" [ drop stacktory [ cook ] change-stack update-stacktory ] <border-button> ;
 
-:: <makeservebutton> ( stacktory -- gadget ) "Serve" [ drop stacktory stack>> serve stacktory stack<< update-stacktory ] <border-button> ;
+:: <makeservebutton> ( stacktory -- gadget ) "Serve" [ drop stacktory [ serve ] change-stack update-stacktory ] <border-button> ;
 
 : makeactionbuttonslist ( stacktory -- listofbuttons ) 
     { [ <makegrillbutton> ]  
@@ -188,7 +189,7 @@ DEFER: <stacktory>
 : <stacktory-gadget> ( -- stacktory-gadget )
     <stacktory> dup game set-global
     stacktory-gadget new over >>stacktory
-    swap makecomponents assemble add-gadget ;
+    swap makecomponents assemble add-gadget dup gamegadget set-global ;
 
 
 : stacktory-window ( -- )
