@@ -6,7 +6,7 @@ USING: namespaces kernel accessors classes
 ui.gestures ui ui.gadgets.worlds ui.gadgets 
 ui.gadgets.panes ui.gadgets.packs ui.gadgets.buttons 
 io sequences arrays math.parser math combinators locals
-images.viewer
+images.viewer ui.gadgets.buttons.private
  ;
 
 IN: burger
@@ -48,6 +48,12 @@ GENERIC: serve ( stack -- stack )
 
 DEFER: <stack>
 DEFER: <stacktory>
+
+
+TUPLE: action-button < button stacktory ;
+: <action-button> ( stacktory label quot: ( button -- ) -- action-button )
+    action-button new-button border-button-theme  swap >>stacktory ;
+
 : update-stacktory ( -- ) gamegadget get relayout-1 ;
 
 
@@ -64,17 +70,18 @@ DEFER: <stacktory>
 
 
 
-:: <makeswapbutton> ( stacktory -- gadget ) "Swap" [ drop stacktory [ iswap ] change-stack update-stacktory ] <border-button> ;
+: <makeswapbutton> ( stacktory -- gadget ) "Swap" [  stacktory>> [ iswap ] change-stack  ] <action-button> ;
 
-:: <makegrillbutton> ( stacktory -- gadget )  "Grill" [ drop stacktory [ cook ] change-stack update-stacktory ] <border-button> ;
+: <makegrillbutton> ( stacktory -- gadget )  "Grill" [ stacktory>> [ cook ] change-stack  ] <action-button> ;
 
-:: <makeservebutton> ( stacktory -- gadget ) "Serve" [ drop stacktory [ serve ] change-stack update-stacktory ] <border-button> ;
+: <makeservebutton> ( stacktory -- gadget ) "Serve" [ stacktory>> [ serve ] change-stack  ] <action-button> ;
 
 : makeactionbuttonslist ( stacktory -- listofbuttons ) 
-    { [ <makegrillbutton> ]  
-    [ <makeservebutton> ] 
-    [ <makeswapbutton> ] }
-    cleave
+    {
+        [ <makegrillbutton> ]  
+        [ <makeservebutton> ] 
+        [ <makeswapbutton> ] 
+    }     cleave
     3array
     ;
 
@@ -130,7 +137,9 @@ DEFER: <stacktory>
 
 
 : ingredientsgadget ( ingredient -- gadget )
-    drop <pane> dup [ "Stack" print ] with-pane { 250 500 } >>pref-dim ;
+    ! gamegadget get 
+
+    drop <pane> dup [ "Bag o ingredients" print ] with-pane { 250 500 } >>pref-dim ;
 
       ! [ image>> ] <pane> swap with-pane { 250 300 } >>pref-dim ;
 
@@ -210,3 +219,8 @@ M: stack serve dup stack>> game get-global goal>> goalstate>> sequence= [ "You g
 
 
 MAIN: stacktory-window
+
+
+! : length ( lox -- n )
+!     [ drop 1 ] map
+!     0 [ + ] reduce ;
